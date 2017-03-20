@@ -1,23 +1,26 @@
 package yoo;
 
 public class Account {
-	private double money;
+	protected double balance;
 	
 	public Account(double s){
-		money=s;
+		balance=s;
 	}
-	public double getMoney(){
-		return money;
+	public double getBalance(){
+		return balance;
 	}
-	public void setMoney(double s){
-		money=s;
+	protected void setBalance(double s){
+		balance=s;
 	}
 	
-	public void add(double s){
-		money += s;
+	public void credit(double s){
+		balance += s;
 	}
-	public void withdraw(double s){
-		money -= s;
-		
-	}
+	public void debit(double s){
+		balance -= s;
+		if(balance<0){
+			System.out.println("Debit amount exceeded account balance");
+			balance+=s;
+			}
+		}
 }

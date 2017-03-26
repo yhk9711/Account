@@ -3,32 +3,38 @@ import java.util.Scanner;
 
 public class AccountTest {
 	public static void main(String[] args){
-		Account account1=new Account(100);
-		Account account2=new Account(100);
+		Scanner input = new Scanner(System.in);
+		
+		checkingAccount account1 = new checkingAccount(500, 0.01, 0.07);
+		checkingAccount account2 = new checkingAccount(500, 0.01, 0.07);
+		
+		account1.setBalance(100);
+		account2.setBalance(100);
 			
-			System.out.printf("account1 balance : $%f\n", account1.getBalance());
-			System.out.printf("account2 balance : $%f\n", account2.getBalance());
+			System.out.printf("account1 balance : $ % .2f\n", account1.getBalance());
+			System.out.printf("account2 balance : $ % .2f\n", account2.getBalance());
 			
-			Scanner aa = new Scanner(System.in);
 			
 			System.out.print("Enter deposit amount for account1: ");
-			double withdraw1=aa.nextDouble();
+			double a=input.nextDouble();
 			
-			account1.debit(withdraw1);
+			account1.credit(a);
 			
-			System.out.printf("account1 balance : $%f\n", account1.getBalance());
-			System.out.printf("account2 balance : $%f\n", account2.getBalance());
+			System.out.printf("account1 balance : $ % .2f\n", account1.getBalance());
+			System.out.printf("account2 balance : $ % .2f\n", account2.getBalance());
 			
 			System.out.print("Enter withdrawal amount for account2: ");
-			double withdraw2=aa.nextDouble();
+			double b=input.nextDouble();
 			
-			account2.debit(withdraw2);
+			account2.debit(b);
 			
-			if(account2.getBalance()<0){
-				System.out.println("Debit amount exceeded account balance");
-				account2.setBalance(0);
-			}
-			System.out.printf("account1 balance : $%f\n", account1.getBalance());
-			System.out.printf("account2 balance : $%f\n", account2.getBalance());
+			System.out.printf("account1 balance : $ % .2f\n", account1.getBalance());
+			System.out.printf("account2 balance : $ % .2f\n", account2.getBalance());
+			
+			System.out.print("next month!\n\n");
+			
+			System.out.printf("account1 balance : $ % .2f\n", account1.nextMonth());
+			System.out.printf("account2 balance : $ % .2f\n", account2.nextMonth());
+			
 	}
 }

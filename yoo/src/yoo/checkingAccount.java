@@ -7,10 +7,12 @@ public class checkingAccount extends Account {
 	private double loan_interest;
 	
 	
-	checkingAccount (double a, double b, double c){
-		credit_limit=a;
-		interest=b;
-		loan_interest=c;
+	public checkingAccount (double balance, double limit, double interest, double loanInterest){
+		super(balance);
+		
+		credit_limit=limit;
+		this.interest = interest;
+		loan_interest = loanInterest;
 		}
 	
 	@Override

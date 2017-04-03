@@ -2,6 +2,7 @@ package yoo;
 
 public class Account {
 	protected double balance;
+	private int month;
 	
 	public Account(double initailBalance){
 		balance=initailBalance;

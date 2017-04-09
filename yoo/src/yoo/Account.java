@@ -1,31 +1,40 @@
 package yoo;
 
-public class Account {
-	protected double balance;
-	private int month;
-	
-	public Account(double initailBalance){
-		balance=initailBalance;
-	}
+import java.util.Scanner;
 
-	public double getBalance(){
-		return balance;
-	}
-	public void setBalance(double m){
-		balance = m;
-	}
-	
-	public void credit(double m){
-		balance += m;
-	}
-	public void debit(double m){
-		balance -= m;
-		
-		}
+abstract class Account implements Valuable{
+   private double balance;
+   
+   public Account(double initialBalance) {
+      balance=initialBalance;
+   }
 
-	abstract double getWithdrawableAccount();
-	
-	
-	abstract void passTime(int p);
 
+   public void credit(double add){
+      balance+=add;
+         }
+   
+   public void debit(double with){
+      balance-=with;
+      if(balance<0){
+         balance+=with;
+         System.out.print("Debit amount exceeded account balance.\n");
+      }
+      }
+      
+   
+   protected void setBalance(double b){
+      balance=b;
+      
+   }
+   public double getBalance(){
+      return balance;
+   }
+   
+   abstract double getWithdrawableAccount();
+   
+   abstract void passTime(int hours);
+   
+   
+   
 }

@@ -14,13 +14,9 @@ abstract class Account implements Valuable{
       balance+=add;
          }
    
-   public void debit(double with){
-      balance-=with;
-      if(balance<0){
-         balance+=with;
-         System.out.print("Debit amount exceeded account balance.\n");
-      }
-      }
+   public void debit(double amount)throws Exception{
+	   balance -=amount;
+   }
       
    
    protected void setBalance(double b){
@@ -34,7 +30,5 @@ abstract class Account implements Valuable{
    abstract double getWithdrawableAccount();
    
    abstract void passTime(int hours);
-   
-   
-   
+
 }

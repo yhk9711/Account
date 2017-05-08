@@ -1,9 +1,30 @@
 package yoo;
 import java.util.InputMismatchException;
-import java.util.Scanner;
+import java.util.ArrayList;
 
 public class AccountTest {
-	public static void main(String args[]){
+	public static void main(String args[]) throws Exception{
+		checkingAccount account1 = new checkingAccount(100,50,0.01,0.07);
+		SavingsAccount account2 = new SavingsAccount(100,0.05);
+		
+		ArrayList<Account> accountList = new ArrayList<Account>();
+		accountList.add(account1);
+		accountList.add(account2);
+	
+		System.out.println("전체 계좌의 잔액 합산 : " + Account.sumForAccount(accountList));
+		
+		System.out.println("전체 계좌의 12개월 후 적용");
+		Account.passTimeForList(accountList,12);
+		System.out.println("전체 계좌의 잔액 합산 : "+ Account.sumForAccount(accountList));
+	}
+}
+	
+	
+	
+		
+	
+	
+	/*	public static void main(String args[]){
 		
 		Account account1=new checkingAccount(100,50,0.01,0.07);
 		Account account2=new SavingsAccount(100,0.05);
@@ -25,8 +46,7 @@ public class AccountTest {
 		System.out.println(c.toString());
 		System.out.printf("1 month later Value (Method Overloding, no parameter):%.2f\n " ,c.EstimateValue());
 		System.out.printf("5 month later Value :%.2f\n " , c.EstimateValue(5));
-
-		
+		*/
 		
 		
 		
@@ -58,5 +78,3 @@ public class AccountTest {
 			account1.passTime(2);
 			System.out.println("2 month later account1 : "+ account1.getBalance());
 		}*/
-	}
-}

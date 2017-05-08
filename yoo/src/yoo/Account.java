@@ -1,6 +1,8 @@
 package yoo;
 
 import java.util.Scanner;
+import java.util.ArrayList;
+import java.util.List;
 
 abstract class Account implements Valuable{
    private double balance;
@@ -30,5 +32,19 @@ abstract class Account implements Valuable{
    abstract double getWithdrawableAccount();
    
    abstract void passTime(int hours);
-
+   
+   public static double sumForAccount(ArrayList<? extends Account> list){
+	   double sum =0;
+	   
+	   for(Account account : list){
+		   sum+=account.getBalance();
+	   }
+	   return sum;
+   }
+   
+   public static void passTimeForList(ArrayList<? extends Account> list, int month){
+	   for(Account account : list){
+		   account.passTime(month);
+	   }
+   }
 }
